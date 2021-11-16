@@ -19,4 +19,24 @@ class PersonsController < ApplicationController
         render component: "Person", props: {person: person}
     end
 
+    def edit
+        person = Person.find(params[:id])
+        render component: "PersonEdit", props: {person: person}
+    end
+
+    def update
+        person = Person.find(params[:id])
+        if person.update(persons_params)
+            redirect_to persons_path
+        else
+            render component: "PersonEdit", props: { person: person }
+        end
+    end
+
+    private
+    
+    def persons_params
+        params.require(:person).permit(:full_name, :age, :gender)
+    end
+
 end
