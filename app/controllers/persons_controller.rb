@@ -14,4 +14,9 @@ class PersonsController < ApplicationController
         render component: "Persons", props: {persons:persons}
     end
 
+    def show
+        person = Person.find(params[:id])
+        render component: "Person", props: {person: person}
+    end
+
 end
