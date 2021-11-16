@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-# Create (1)
+root "persons#index"
+  # Create (1)
 get "/persons/new", to: "persons#new"
 # Create (2)
 post "/persons", to: "persons#create"
@@ -13,7 +14,7 @@ get "/persons/:id/edit", to: "persons#edit"
 # Update (2)
 patch "/persons/:id", to: "persons#update"
 # Delete
-
+delete "/persons/:id", to: "persons#destroy"
 
 
 end

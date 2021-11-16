@@ -32,6 +32,11 @@ class PersonsController < ApplicationController
             render component: "PersonEdit", props: { person: person }
         end
     end
+    
+    def destroy
+        Person.find(params[:id]).delete
+        redirect_to persons_path
+        end
 
     private
     
